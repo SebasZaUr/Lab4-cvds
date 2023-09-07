@@ -9,7 +9,7 @@ public class BonusScore implements GameScore{
         if(previousCorrect < correctCount){
             previousCorrect = correctCount;
             score += 10;
-        }else if(previousIncorrect < incorrectCount){
+        }else if(previousIncorrect < incorrectCount && score > 0){
             previousIncorrect = incorrectCount;
             score -= 5;
         }

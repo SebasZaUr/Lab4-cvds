@@ -1,9 +1,9 @@
 package hangman.model;
 
-public class originalScore implements GameScore{
+public class OriginalScore implements GameScore{
     private int score = 100;
 
-    private int previousIncorrectCount = 0;
+    private int previousIncorrectCount;
 
 
     @Override
