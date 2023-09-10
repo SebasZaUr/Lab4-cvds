@@ -3,8 +3,6 @@ package hangman;
 import hangman.model.BonusScore;
 import hangman.model.OriginalScore;
 import hangman.model.PowerScore;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -55,19 +53,37 @@ public class GameScoreTest {
     @Test
     public void validateOriginDownToNegativesNumbers() {
         int result = origin.calculateScore(0, 0);
-        result = origin.calculateScore(0, 0);
-        result = origin.calculateScore(0, 1);
-        result = origin.calculateScore(0, 2);
-        result = origin.calculateScore(0, 3);
-        result = origin.calculateScore(0, 4);
-        result = origin.calculateScore(0, 5);
-        result = origin.calculateScore(0, 6);
-        result = origin.calculateScore(0, 7);
-        result = origin.calculateScore(0, 8);
-        result = origin.calculateScore(0, 9);
-        result = origin.calculateScore(0, 10);
+        origin.calculateScore(0, 0);
+        origin.calculateScore(0, 1);
+        origin.calculateScore(0, 2);
+        origin.calculateScore(0, 3);
+        origin.calculateScore(0, 4);
+        origin.calculateScore(0, 5);
+        origin.calculateScore(0, 6);
+        origin.calculateScore(0, 7);
+        origin.calculateScore(0, 8);
+        origin.calculateScore(0, 9);
+        origin.calculateScore(0, 10);
         result = origin.calculateScore(0, 11);
         Assert.assertEquals(0, result);
     }
 
+    @Test
+    public void validatesPowerScoreNotPass500() {
+        int result = power.calculateScore(1, 0);
+        Assert.assertEquals(5, result);
+        result = power.calculateScore(2, 0);
+        Assert.assertEquals(30, result);
+        result = power.calculateScore(3, 0);
+        Assert.assertEquals(155, result);
+        result = power.calculateScore(4, 0);
+        Assert.assertEquals(500, result);
+    }
+    @Test
+    public void validatesBonusOrPowerCouldHasNegativeScore() {
+        int result = power.calculateScore(0, 1);
+        Assert.assertEquals(0, result);
+        result = power.calculateScore(0, 1);
+        Assert.assertEquals(0, result);
+    }
 }
