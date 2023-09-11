@@ -3,18 +3,21 @@ package hangman.model;
 public class OriginalScore implements GameScore{
     private int score = 100;
 
-    private int previousIncorrectCount;
-
 
     @Override
     public int calculateScore(int correctCount, int incorrectCount) {
-        if (correctCount == 0 && incorrectCount == 0){
-            score = 100;
+        if(incorrectCount >= 0 && correctCount >= 0 ) {
+            score = 100 - (10 * incorrectCount);
         }
-        if (previousIncorrectCount < incorrectCount && score >0) {
-            score -= 10;
+        if(score < 0){
+            score = 0;
         }
-        previousIncorrectCount = incorrectCount;
+        return score;
+    }
+
+    @Override
+    public int getInitialScore() {
+        score = 100;
         return score;
     }
 }

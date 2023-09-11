@@ -4,6 +4,10 @@
 
 ### Desarrollo Dirigido por Pruebas + DIP + DI + Contenedores Livianos
 
+### Integrantes
+   * Sebastian Zamora
+   * Cesar Amaya
+
 
 Para este taller se va a trabajar sobre el juego del ahorcado.
 

@@ -11,9 +11,9 @@ import org.junit.Test;
  */
 public class GameScoreTest {
 
-    private OriginalScore origin = new OriginalScore();
-    private BonusScore bonus = new BonusScore();
-    private PowerScore power = new PowerScore();
+    private final OriginalScore origin = new OriginalScore();
+    private final BonusScore bonus = new BonusScore();
+    private final PowerScore power = new PowerScore();
     @Test
     public void validateOriginPlay() {
         int result = origin.calculateScore(0, 0);
@@ -52,19 +52,7 @@ public class GameScoreTest {
 
     @Test
     public void validateOriginDownToNegativesNumbers() {
-        int result = origin.calculateScore(0, 0);
-        origin.calculateScore(0, 0);
-        origin.calculateScore(0, 1);
-        origin.calculateScore(0, 2);
-        origin.calculateScore(0, 3);
-        origin.calculateScore(0, 4);
-        origin.calculateScore(0, 5);
-        origin.calculateScore(0, 6);
-        origin.calculateScore(0, 7);
-        origin.calculateScore(0, 8);
-        origin.calculateScore(0, 9);
-        origin.calculateScore(0, 10);
-        result = origin.calculateScore(0, 11);
+        int result = origin.calculateScore(0, 11);
         Assert.assertEquals(0, result);
     }
 
@@ -83,7 +71,17 @@ public class GameScoreTest {
     public void validatesBonusOrPowerCouldHasNegativeScore() {
         int result = power.calculateScore(0, 1);
         Assert.assertEquals(0, result);
-        result = power.calculateScore(0, 1);
+        result = power.calculateScore(0, 2);
         Assert.assertEquals(0, result);
+    }
+
+    @Test
+    public void validates(){
+        int result = bonus.calculateScore(0, 1);
+        Assert.assertEquals(0, result);
+        result = bonus.calculateScore(0, 2);
+        Assert.assertEquals(0, result);
+        result = bonus.calculateScore(1, 2);
+        Assert.assertEquals(10, result);
     }
 }

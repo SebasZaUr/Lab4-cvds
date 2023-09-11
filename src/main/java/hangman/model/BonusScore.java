@@ -15,4 +15,12 @@ public class BonusScore implements GameScore{
         }
         return score;
     }
+
+    @Override
+    public int getInitialScore() {
+        score = 0;
+        previousCorrect = 0;
+        previousIncorrect = 0;
+        return score;
+    }
 }
